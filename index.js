@@ -1,6 +1,6 @@
 (function () {
     const currentUrl = document.currentScript.src;
-    const prefixUrl = currentUrl.indexOf('dscripts') !== -1 ? 'https://dmodules.promolayer.io' : 'https://modules.promolayer.io'
+    const prefixUrl = currentUrl.indexOf('dscripts') !== -1 ? 'https://dmodules.promolayer.io/index.js' : 'https://modules.promolayer.io/index.js'
 
     const getUIDfromURL = (url) => {
         if(!url) return false;
