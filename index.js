@@ -1,5 +1,10 @@
 (function () {
     const currentUrl = document.currentScript.src;
+    const prefixUrl = currentUrl.indexOf('dscripts') !== -1 ? 'https://dmodules.promolayer.io' : 'https://modules.promolayer.io'
+
+    // fuck all of IE right off
+    const detectIEregexp = /Trident.*rv[ :]*(\d+\.\d+)/
+    if (detectIEregexp.test(navigator.userAgent)) return;
 
     const getUIDfromURL = (url) => {
         if(!url) return false;
@@ -15,7 +20,7 @@
     function addScript( uid ) {
         var s = document.createElement( 'script' );
         s.setAttribute('type', 'module');
-        s.setAttribute( 'src', 'https://scripts.promolayer.io?uid='+uid );
+        s.setAttribute( 'src', prefixUrl+'?uid='+uid );
         document.body.appendChild( s );
     }
 
