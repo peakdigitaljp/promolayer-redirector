@@ -1,6 +1,7 @@
 (function () {
     const currentUrl = document.currentScript.src;
-    const prefixUrl = currentUrl.indexOf('dscripts') !== -1 ? 'https://dmodules.promolayer.io/index.js' : 'https://modules.promolayer.io/index.js'
+    const isDscripts = currentUrl.indexOf('dscripts') !== -1 ? 'd' : '';
+    const loadUrl = `https://${isDscripts}modules.promolayer.io/index.js`
 
     const getUIDfromURL = (url) => {
         if(!url) return false;
@@ -17,7 +18,8 @@
     function addScript( uid ) {
         var s = document.createElement( 'script' );
         s.setAttribute('type', 'module');
-        s.setAttribute( 'src', prefixUrl+'?uid='+uid );
+        s.setAttribute( 'src', loadUrl );
+        s.setAttribute( 'data-pluid', uid );
         document.head.appendChild( s );
     }
 
