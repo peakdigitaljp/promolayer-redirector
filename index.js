@@ -17,9 +17,9 @@
 
     function addScript( uid ) {
         var s = document.createElement( 'script' );
-        s.type('module');
-        s.src( loadUrl );
-        s.dataset.pluid( uid );
+        s.type= 'module';
+        s.src = loadUrl;
+        s.dataset.pluid = uid;
         s.async = true;
         document.head.appendChild( s );
     }
